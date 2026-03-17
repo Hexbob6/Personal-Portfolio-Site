@@ -22,22 +22,20 @@
     min-width: 100%;
     min-height: 100%;
 
+    /* prevents blur edges showing */
     transform: translate(-50%, -50%) scale(1.1);
 
     /* blur */
-
-    filter: blur(12px);
-
-    /* prevents blur edges showing */
+    filter: blur(15px);
 
 }
 
 .mobile-only {
-  display: none;
+    display: none;
 }
 
 .desktop-only {
-  display: block;
+    display: block;
 }
 
 
@@ -51,9 +49,9 @@
 
     /* Use a radial gradient to darken the center subtly */
     background: radial-gradient(circle at center,
-            rgba(0, 0, 0, 0.5) 0%,
+            rgba(0, 0, 0, 0.25) 0%,
             /* center */
-            rgba(0, 0, 0, 0.2) 60%,
+            rgba(0, 0, 0, 0.1) 60%,
             /* mid area */
             rgba(0, 0, 0, 0.0) 100%
             /* edges */
@@ -134,32 +132,36 @@
 }
 
 /* Mobile breakpoint, adjust as needed */
-@media (max-width: 600px){
+@media (max-width: 600px) {
 
-  .mobile-only{
-    display:block;
-  }
+    .mobile-only {
+        display: block;
+    }
 
-  .desktop-only{
-    display:none;
-  }
+    .desktop-only {
+        display: none;
+    }
 
-  .hero-content {
-    gap: 60px;
-  }
+    .hero-content {
+        gap: 60px;
+    }
 
-  /* Increase width on mobile */
+    /* Increase width on mobile */
 
-  .hero-heading{
-    width: clamp(160px, 85vw, 400px);
-  }
+    .hero-heading {
+        width: clamp(160px, 85vw, 400px);
+    }
 
-  .showreel-button{
-    width: clamp(160px, 70vw, 340px);
-  }
+    .showreel-button {
+        width: clamp(160px, 70vw, 340px);
+    }
 
-  .hero-logo{
-    width: clamp(65px, 20vw, 100px);
-  }
+    .hero-logo {
+        width: clamp(65px, 20vw, 100px);
+    }
+
+    .background-video {
+        filter: blur(10px);
+    }
 
 }
