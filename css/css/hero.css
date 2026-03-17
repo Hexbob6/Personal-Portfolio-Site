@@ -1,0 +1,167 @@
+.video-container {
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 0;
+
+}
+
+
+.background-video {
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    /* ensures full coverage */
+
+    min-width: 100%;
+    min-height: 100%;
+
+    /* prevents blur edges showing */
+    transform: translate(-50%, -50%) scale(1.1);
+
+    /* blur */
+    filter: blur(15px);
+
+}
+
+.mobile-only {
+    display: none;
+}
+
+.desktop-only {
+    display: block;
+}
+
+
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    /* Use a radial gradient to darken the center subtly */
+    background: radial-gradient(circle at center,
+            rgba(0, 0, 0, 0.25) 0%,
+            /* center */
+            rgba(0, 0, 0, 0.1) 60%,
+            /* mid area */
+            rgba(0, 0, 0, 0.0) 100%
+            /* edges */
+        );
+
+    pointer-events: none;
+    /* let clicks pass through */
+    z-index: 0;
+}
+
+
+.hero-content {
+
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 80px;
+    padding: 20px;
+
+    text-align: center;
+    z-index: 1
+}
+
+
+.hero-heading {
+
+    width: clamp(var(--heading-min-width),
+            60vw,
+            var(--heading-max-width));
+
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, .8));
+
+}
+
+
+.showreel-button {
+
+    width: clamp(var(--button-min-width),
+            42vw,
+            var(--button-max-width));
+
+    transition: transform .25s ease,
+        filter .25s ease;
+
+    /* filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.45)); */
+
+}
+
+
+.showreel-button:hover {
+
+    transform: scale(1.05);
+
+    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.8));
+
+}
+
+
+/* bottom logo */
+
+
+.hero-logo {
+
+    position: absolute;
+
+    bottom: 5%;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: clamp(var(--logo-min-width), 10vw, var(--logo-max-width));
+
+    filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.6));
+
+    opacity: .9;
+
+}
+
+/* Mobile breakpoint, adjust as needed */
+@media (max-width: 600px) {
+
+    .mobile-only {
+        display: block;
+    }
+
+    .desktop-only {
+        display: none;
+    }
+
+    .hero-content {
+        gap: 60px;
+    }
+
+    /* Increase width on mobile */
+
+    .hero-heading {
+        width: clamp(160px, 85vw, 400px);
+    }
+
+    .showreel-button {
+        width: clamp(160px, 70vw, 340px);
+    }
+
+    .hero-logo {
+        width: clamp(65px, 20vw, 100px);
+    }
+
+    .background-video {
+        filter: blur(10px);
+    }
+
+}
